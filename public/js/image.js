@@ -30,6 +30,7 @@ document.getElementById('product_image').addEventListener('change', function(e) 
                   $('.image').show();
               }
               reader.readAsDataURL(file);
+              
        
     }
    })

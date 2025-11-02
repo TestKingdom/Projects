@@ -37,7 +37,7 @@
 
      
     <table class="table  table-hover align-middle">
-        <thead class="table-light">
+        <thead class="table-secondary">
             <tr>
                 <th>ID</th>
                 <th>Image</th>
@@ -98,7 +98,7 @@
                             @method('DELETE')
                             @csrf
                     <input type="hidden" name="confirm_code" value="{{ $product->id }}">
-                     <button class="btn btn-danger" onclick="return confirm('Confirm for deletion')">Delete</button> 
+                     <button class="btn btn-danger" id="delete" >Delete</button> 
                     </form>
                     </td>
                 </tr>
@@ -137,5 +137,16 @@
     @endphp --}}
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded",function()
+    {
+        document.getElementById('delete').onclick=function()
+        {
+            return confirm("Confirm deletion");
+        } 
 
+        
+    });
+
+</script>
 @endsection

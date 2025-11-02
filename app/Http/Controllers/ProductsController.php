@@ -27,7 +27,7 @@ class ProductsController extends Controller
         
         if($req->hasFile('product_image')) 
         {
-                $filname=$fields['product_name'].'_'.uniqid().'_'.date('d_m_Y_H_i_s').'.'.$req->file('product_image')->getClientOriginalExtension();
+            $filname=$fields['product_name'].'_'.uniqid().'_'.date('d_m_Y_H_i_s').'.'.$req->file('product_image')->extension();
             $path= $req->file('product_image')->storeAs('photos',$filname,'public');
             $fields['product_image']=$path;
         }
@@ -52,6 +52,8 @@ class ProductsController extends Controller
         
         return view('updateproduct',['product'=>$product]);
     }
+
+    
     function deleteProduct(Product $product, Request $request) {
         // dd($request->confirm_code);
         // dd($request->confirm_code != $product->id);
